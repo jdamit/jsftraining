@@ -2,6 +2,7 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns = "http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h = "http://java.sun.com/jsf/html">
    <head>
       <title>JSF Tutorial!</title>
@@ -14,8 +15,14 @@
          <h:inputText value = "Hello World!" readonly = "true"/>
          <h3>Read-Only input text box</h3>
          <h:inputText value = "Hello World" disabled="true"/>
-         
-      </h:form>
+         <h3>Drop down:</h3>
+		<h:selectOneMenu id="dropDown"
+			value="#{jsfMbean.dropDownValue}">
+			<f:selectItem itemLabel="Select" />
+			<f:selectItems value="#{jsfMbean.dropdownList}"
+				var="tipo" itemLabel="#{tipo.valor}" itemValue="#{tipo.codigo}" />
+		</h:selectOneMenu>
+	</h:form>
       
    </body>
 </html>
